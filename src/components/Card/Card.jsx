@@ -23,16 +23,17 @@ export const Card = () => {
   const [buttonColor, setButtonColor] = useState(true);
 
   useEffect(() => {
+    setCounter(JSON.parse(localStorage.getItem('counter')));
+    setIsClick(localStorage.getItem('isClick'));
+    setButtonColor(JSON.parse(localStorage.getItem('buttonColor')));
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('counter', counter);
     localStorage.setItem('isClick', isClick);
     localStorage.setItem('buttonColor', buttonColor);
   }, [counter, isClick, buttonColor]);
 
-  useEffect(() => {
-    setCounter(JSON.parse(localStorage.getItem('counter')));
-    setIsClick(localStorage.getItem('isClick'));
-    setButtonColor(JSON.parse(localStorage.getItem('buttonColor')));
-  }, []);
   const updateCounter = () => {
     if (isClick === 'Follow') {
       setCounter(counter + 1);
@@ -46,6 +47,7 @@ export const Card = () => {
   };
 
   const counterFormating = new Intl.NumberFormat('en-US').format(counter);
+
   return (
     <CardDiv>
       <Logo src={imgLogo} alt="GoIT logo" />
