@@ -18,15 +18,15 @@ import {
 } from './Card.styled';
 
 export const Card = () => {
-  const [counter, setCounter] = useState(100500);
-  const [isClick, setIsClick] = useState('Follow');
-  const [buttonColor, setButtonColor] = useState(true);
-
   useEffect(() => {
     setCounter(JSON.parse(localStorage.getItem('counter')));
     setIsClick(localStorage.getItem('isClick'));
     setButtonColor(JSON.parse(localStorage.getItem('buttonColor')));
   }, []);
+
+  const [counter, setCounter] = useState(100500);
+  const [isClick, setIsClick] = useState('Follow');
+  const [buttonColor, setButtonColor] = useState(true);
 
   useEffect(() => {
     localStorage.setItem('counter', counter);
