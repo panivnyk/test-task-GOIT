@@ -1,3 +1,5 @@
+import { Card } from './Card/Card';
+
 export const App = () => {
   return (
     <div
@@ -6,11 +8,11 @@ export const App = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
+        // fontSize: 40,
+        // color: '#010101',
       }}
     >
-      React homework template
+      <Card />
     </div>
   );
 };
