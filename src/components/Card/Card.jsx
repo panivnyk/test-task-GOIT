@@ -20,32 +20,33 @@ import {
 export const Card = () => {
   const [counter, setCounter] = useState(100500);
   const [isClick, setIsClick] = useState('Follow');
-  const [active, setActive] = useState(true);
+  const [buttonColor, setButtonColor] = useState(true);
 
   useEffect(() => {
     setCounter(JSON.parse(localStorage.getItem('counter')));
     setIsClick(localStorage.getItem('isClick'));
+    setButtonColor(JSON.parse(localStorage.getItem('buttonColor')));
   }, []);
 
   useEffect(() => {
     localStorage.setItem('counter', counter);
     localStorage.setItem('isClick', isClick);
-  }, [counter, isClick]);
-
-  const counterFormating = new Intl.NumberFormat('en-US').format(counter);
+    localStorage.setItem('buttonColor', buttonColor);
+  }, [counter, isClick, buttonColor]);
 
   const updateCounter = () => {
     if (isClick === 'Follow') {
       setCounter(counter + 1);
       setIsClick('Following');
-      setActive(false);
+      setButtonColor(false);
     } else {
       setCounter(counter - 1);
       setIsClick('Follow');
-      setActive(true);
+      setButtonColor(true);
     }
   };
 
+  const counterFormating = new Intl.NumberFormat('en-US').format(counter);
   return (
     <CardDiv>
       <Logo src={imgLogo} alt="GoIT logo" />
@@ -59,11 +60,7 @@ export const Card = () => {
         <CardButton
           type="button"
           onClick={updateCounter}
-          style={
-            active
-              ? { backgroundColor: '#ebd8ff' }
-              : { backgroundColor: '#5cd3a8' }
-          }
+          style={{ backgroundColor: buttonColor ? '#ebd8ff' : '#5cd3a8' }}
         >
           {isClick}
         </CardButton>
