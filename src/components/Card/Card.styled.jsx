@@ -17,18 +17,24 @@ export const CardDiv = styled.div`
 `;
 
 export const Logo = styled.img`
+  position: absolute;
   display: block;
   padding-top: 20px;
   padding-left: 20px;
 `;
 export const Background = styled.img`
-  display: block;
+  position: relative;
+  /* display: block; */
   top: 28px;
   padding-left: 36px;
   margin-bottom: 14px;
 `;
 
-export const AvatarBox = styled.div``;
+export const AvatarBox = styled.div`
+  position: relative;
+  margin-top: 28px;
+  margin-bottom: 62px;
+`;
 
 export const AvatarLine = styled.div`
   height: 8px;
@@ -54,6 +60,7 @@ export const AvatarEllipse = styled.div`
 
 export const Avatar = styled.img`
   display: block;
+  position: absolute;
   background-color: #5736a3;
   border-radius: 50%;
   position: absolute;
