@@ -4,6 +4,8 @@ export const CardDiv = styled.div`
   position: absolute;
   width: 380px;
   height: 460px;
+  /* padding-bottom: 36px; */
+
   background: linear-gradient(
     114.99deg,
     #471ca9 -0.99%,
@@ -20,31 +22,54 @@ export const Logo = styled.img`
   padding-left: 20px;
 `;
 export const Background = styled.img`
-  margin-bottom: 18px;
+  display: block;
+  top: 28px;
+  padding-left: 36px;
+  margin-bottom: 14px;
+`;
+
+export const AvatarBox = styled.div``;
+
+export const AvatarLine = styled.div`
+  height: 8px;
+  background: #ebd8ff;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
+`;
+export const AvatarEllipse = styled.div`
+  position: absolute;
+  margin-bottom: 26px;
+
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ebd8ff;
+  border-radius: 50%;
+  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
+    inset 0px -2.19582px 4.39163px #ae7be3,
+    inset 0px 4.39163px 3.29372px #fbf8ff;
 `;
 
 export const Avatar = styled.img`
+  display: block;
+  background-color: #5736a3;
+  border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
 
-export const Line = styled.div`
-  position: absolute;
-  height: 8px;
-  background: #ebd8ff;
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
-    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
-`;
-
 export const InfoWrap = styled.div`
   display: block;
-  margin-top: 48px;
+  margin-top: 58px;
 `;
 
 export const Tweets = styled.p`
   margin-bottom: 16px;
+  margin-top: 20px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -68,6 +93,7 @@ export const Followers = styled.p`
 export const CardButton = styled.button`
   margin-left: auto;
   margin-right: auto;
+
   display: block;
   width: 196px;
   height: 50px;

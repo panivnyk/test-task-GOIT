@@ -2,14 +2,16 @@ import { useLocalStorage } from 'hooks/useLocalStorage';
 
 import imgLogo from '../../images/logo.png';
 import imgBackground from '../../images/bg.png';
-import imgAvatar from '../../images/avatar1.png';
+import imgAvatar from '../../images/avatar.png';
 import imgLine from '../../images/rectangle.png';
 
 import {
   CardDiv,
   Logo,
   Background,
-  Line,
+  AvatarBox,
+  AvatarLine,
+  AvatarEllipse,
   Avatar,
   InfoWrap,
   Tweets,
@@ -37,8 +39,11 @@ export const Card = () => {
     <CardDiv>
       <Logo src={imgLogo} alt="GoIT logo" />
       <Background src={imgBackground} alt="background image" />
-      <Line src={imgLine} alt="avatar image" />
-      <Avatar src={imgAvatar} alt="avatar image" />
+      <AvatarBox>
+        <AvatarLine src={imgLine} alt="avatar image" />
+        <AvatarEllipse />
+        <Avatar src={imgAvatar} alt="avatar image" />
+      </AvatarBox>
       <InfoWrap>
         <Tweets>777 tweets</Tweets>
         <Followers>{counterFormating} Followers</Followers>
