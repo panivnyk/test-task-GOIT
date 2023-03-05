@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useLocalStorage } from 'hooks/useLocalStorage';
 
 import imgLogo from '../../images/logo.png';
 import imgBackground from '../../images/bg.png';
@@ -18,31 +18,16 @@ import {
 } from './Card.styled';
 
 export const Card = () => {
-  const [counter, setCounter] = useState(100500);
-  const [isClick, setIsClick] = useState('Follow');
-  const [buttonColor, setButtonColor] = useState(true);
-
-  useEffect(() => {
-    setCounter(JSON.parse(localStorage.getItem('counter')));
-    setIsClick(localStorage.getItem('isClick'));
-    setButtonColor(JSON.parse(localStorage.getItem('buttonColor')));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('counter', counter);
-    localStorage.setItem('isClick', isClick);
-    localStorage.setItem('buttonColor', buttonColor);
-  }, [counter, isClick, buttonColor]);
+  const [counter, setCounter] = useLocalStorage('counter', 100500);
+  const [isClick, setIsClick] = useLocalStorage('follow', false);
 
   const updateCounter = () => {
-    if (isClick === 'Follow') {
-      setCounter(counter + 1);
-      setIsClick('Following');
-      setButtonColor(false);
-    } else {
+    if (isClick) {
       setCounter(counter - 1);
-      setIsClick('Follow');
-      setButtonColor(true);
+      setIsClick(!isClick);
+    } else {
+      setCounter(counter + 1);
+      setIsClick(!isClick);
     }
   };
 
@@ -61,9 +46,9 @@ export const Card = () => {
         <CardButton
           type="button"
           onClick={updateCounter}
-          style={{ backgroundColor: buttonColor ? '#ebd8ff' : '#5cd3a8' }}
+          style={{ backgroundColor: isClick ? '#5cd3a8' : '#ebd8ff' }}
         >
-          {isClick}
+          {isClick ? 'Following' : 'Follow'}
         </CardButton>
       </InfoWrap>
     </CardDiv>
